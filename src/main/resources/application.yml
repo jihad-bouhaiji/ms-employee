@@ -1,0 +1,30 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/msemployees
+    jdbc-url: jdbc:mysql://localhost:3306/msemployees
+    platform: mysql
+    username: root
+    password: test
+    initialization-timeout: -1
+    maximum-pool-size: 5
+    pool-name: Main
+  jpa:
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQLDialect
+    properties:
+      javax.persistence.validation.mode: none
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
+          batch_size: 100
+        temp:
+          use_jdbc_metadata_defaults: false
+        generate_statistics: true
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+  flyway:
+    schemas: msemployee
+    baseline-on-migrate: true
